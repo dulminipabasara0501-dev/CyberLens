@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/CyberLens/Scenes/Splash.unity
+    guid: c190b907ecf5ddc4a86049b16f538bd8
+  - enabled: 1
+    path: Assets/CyberLens/Scenes/MainMenu.unity
+    guid: 4fad2d62b22cbaf4fa2e94d63427cc69
+  - enabled: 1
+    path: Assets/CyberLens/Scenes/ARLearning.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 16b20ff0284e7c8408d9c2294d35be6d, type: 2}
