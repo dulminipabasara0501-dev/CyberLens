@@ -1,0 +1,49 @@
+# Unity generated folders (never upload these)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+
+# Build folders
+[Bb]uild/
+[Bb]uilds/
+
+# Android build outputs
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Gradle and Android
+.gradle/
+ExportedObj/
+/[Aa]ssets/Plugins/Android/*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Crash and log files
+sysinfo.txt
+*.log
+
+# Private information - never commit these
+*.keystore
+*.jks
+secrets.json
+.env
