@@ -2,7 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Gives a button the CyberLens look. Choose Primary or Secondary in the Inspector.
+// Gives a button the CyberLens look.
+// Primary = glowing violet, Secondary = dark card,
+// Correct = cyan highlight, Wrong = light violet highlight.
 [RequireComponent(typeof(Button))]
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Outline))]
@@ -11,7 +13,9 @@ public class StyledButton : MonoBehaviour
     public enum ButtonStyle
     {
         Primary,
-        Secondary
+        Secondary,
+        Correct,
+        Wrong
     }
 
     [SerializeField] private ButtonStyle style = ButtonStyle.Primary;
@@ -24,6 +28,13 @@ public class StyledButton : MonoBehaviour
 
     private void OnValidate()
     {
+        ApplyStyle();
+    }
+
+    // Other scripts (for example the quiz) can call this to change the look.
+    public void SetStyle(ButtonStyle newStyle)
+    {
+        style = newStyle;
         ApplyStyle();
     }
 
@@ -42,17 +53,31 @@ public class StyledButton : MonoBehaviour
             label = GetComponentInChildren<TMP_Text>();
         }
 
-        if (style == ButtonStyle.Primary)
+        switch (style)
         {
-            background.color = UIColors.Violet;
-            glow.effectColor = UIColors.VioletGlow;
-            glow.effectDistance = new Vector2(4f, 4f);
-        }
-        else
-        {
-            background.color = UIColors.Card;
-            glow.effectColor = UIColors.Line;
-            glow.effectDistance = new Vector2(2f, 2f);
+            case ButtonStyle.Primary:
+                background.color = UIColors.Violet;
+                glow.effectColor = UIColors.VioletGlow;
+                glow.effectDistance = new Vector2(4f, 4f);
+                break;
+
+            case ButtonStyle.Secondary:
+                background.color = UIColors.Card;
+                glow.effectColor = UIColors.Line;
+                glow.effectDistance = new Vector2(2f, 2f);
+                break;
+
+            case ButtonStyle.Correct:
+                background.color = Color.Lerp(UIColors.Card, UIColors.Cyan, 0.1f);
+                glow.effectColor = UIColors.Cyan;
+                glow.effectDistance = new Vector2(2f, 2f);
+                break;
+
+            case ButtonStyle.Wrong:
+                background.color = Color.Lerp(UIColors.Card, UIColors.LightViolet, 0.15f);
+                glow.effectColor = UIColors.LightViolet;
+                glow.effectDistance = new Vector2(2f, 2f);
+                break;
         }
 
         if (label != null)
