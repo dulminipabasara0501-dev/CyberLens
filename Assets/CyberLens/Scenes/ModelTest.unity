@@ -1947,6 +1947,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2278073903875432995, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3423931893929151944, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
       propertyPath: m_Name
       value: CyberLab
@@ -1990,6 +1994,22 @@ PrefabInstance:
     - target: {fileID: 3798764021287470580, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729465303779670207, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729465303779670207, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409977599190188751, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409977599190188751, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
