@@ -50,6 +50,7 @@ public static class ProgressStore
         PlayerPrefs.SetInt(ScoreKey(kind), score);
         PlayerPrefs.SetString(MissedKey(kind), string.Join(",", missedModules));
         PlayerPrefs.Save();
+        AudioManager.Play(SoundId.Success);
     }
 
     // ----- Module progress -----
@@ -69,6 +70,7 @@ public static class ProgressStore
         int bits = PlayerPrefs.GetInt(CompletedModulesKey, 0);
         PlayerPrefs.SetInt(CompletedModulesKey, bits | (1 << moduleIndex));
         PlayerPrefs.Save();
+        AudioManager.Play(SoundId.Success);
     }
 
     public static int CompletedModuleCount
@@ -103,6 +105,7 @@ public static class ProgressStore
     {
         PlayerPrefs.SetInt(ChallengeKey, 1);
         PlayerPrefs.Save();
+        AudioManager.Play(SoundId.Success);
     }
 
     // ----- Resetting -----

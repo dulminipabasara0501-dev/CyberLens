@@ -1,14 +1,16 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // Gives a button the CyberLens look.
 // Primary = glowing violet, Secondary = dark card,
 // Correct = cyan highlight, Wrong = light violet highlight.
+// Also plays the click sound, and the correct/wrong sound for the pressed button.
 [RequireComponent(typeof(Button))]
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Outline))]
-public class StyledButton : MonoBehaviour
+public class StyledButton : MonoBehaviour, IPointerDownHandler
 {
     public enum ButtonStyle
     {
@@ -21,8 +23,12 @@ public class StyledButton : MonoBehaviour
     [SerializeField] private ButtonStyle style = ButtonStyle.Primary;
     [SerializeField] private TMP_Text label;
 
+    private Button button;
+    private float lastPressTime = -100f;
+
     private void Awake()
     {
+        button = GetComponent<Button>();
         ApplyStyle();
     }
 
@@ -31,11 +37,39 @@ public class StyledButton : MonoBehaviour
         ApplyStyle();
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (button != null && button.interactable)
+        {
+            lastPressTime = Time.unscaledTime;
+            AudioManager.Play(SoundId.Click);
+        }
+    }
+
     // Other scripts (for example the quiz) can call this to change the look.
     public void SetStyle(ButtonStyle newStyle)
     {
         style = newStyle;
         ApplyStyle();
+        PlayFeedbackSound(newStyle);
+    }
+
+    // Only plays if this very button was just pressed by the user.
+    private void PlayFeedbackSound(ButtonStyle newStyle)
+    {
+        if (!Application.isPlaying || Time.unscaledTime - lastPressTime > 1f)
+        {
+            return;
+        }
+
+        if (newStyle == ButtonStyle.Correct)
+        {
+            AudioManager.Play(SoundId.Correct);
+        }
+        else if (newStyle == ButtonStyle.Wrong)
+        {
+            AudioManager.Play(SoundId.Wrong);
+        }
     }
 
     private void ApplyStyle()

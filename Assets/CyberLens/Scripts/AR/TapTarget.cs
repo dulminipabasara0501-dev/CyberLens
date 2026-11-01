@@ -38,6 +38,8 @@ public class TapTarget : MonoBehaviour
     // Called by LabTouchController when this object is tapped.
     public void NotifyTapped()
     {
+        AudioManager.Play(SoundId.Tap);
+
         if (pulseRoutine != null)
         {
             StopCoroutine(pulseRoutine);
