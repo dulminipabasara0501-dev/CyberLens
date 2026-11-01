@@ -30,7 +30,7 @@ public class LessonController : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private TMP_Text nextButtonLabel;
 
-    [Header("Editor testing (-1 = off, 0 = Module 1 ... 4 = Module 5)")]
+    [Header("Editor testing (-1 = off, 0 = Module 1 ... 4 = Module 5, 5 = Security Challenge)")]
     [SerializeField] private int editorTestModuleIndex = -1;
 
     private const string MainMenuSceneName = "MainMenu";
@@ -55,7 +55,7 @@ public class LessonController : MonoBehaviour
             AppSession.SelectedModuleIndex = editorTestModuleIndex;
         }
 
-        module = ModuleLibrary.GetModule(AppSession.SelectedModuleIndex);
+        module = GetSelectedModule();
 
         CacheOptionButtons();
         AddListener(backButton, OnBackClicked);
@@ -96,6 +96,16 @@ public class LessonController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private static LessonModule GetSelectedModule()
+    {
+        if (AppSession.SelectedModuleIndex == AppSession.ChallengeIndex)
+        {
+            return ChallengeLibrary.GetChallenge();
+        }
+
+        return ModuleLibrary.GetModule(AppSession.SelectedModuleIndex);
     }
 
     // ----- Showing a step -----
@@ -307,8 +317,16 @@ public class LessonController : MonoBehaviour
 
     private void CompleteModule()
     {
-        // Stage 9 will save the module as completed here.
-        Debug.Log("Module complete: " + module.Title);
+        // Save progress on the phone.
+        if (AppSession.SelectedModuleIndex == AppSession.ChallengeIndex)
+        {
+            ProgressStore.MarkChallengeComplete();
+        }
+        else
+        {
+            ProgressStore.MarkModuleComplete(AppSession.SelectedModuleIndex);
+        }
+
         ExitToModuleMenu();
     }
 

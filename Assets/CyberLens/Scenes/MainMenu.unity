@@ -3040,7 +3040,6 @@ GameObject:
   - component: {fileID: 325368369}
   - component: {fileID: 325368368}
   - component: {fileID: 325368367}
-  - component: {fileID: 325368373}
   m_Layer: 5
   m_Name: ReviewButton1
   m_TagString: Untagged
@@ -3199,19 +3198,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325368365}
   m_CullTransparentMesh: 1
---- !u!114 &325368373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325368365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 7
 --- !u!1 &364606801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,6 +3541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 428048706}
+  - component: {fileID: 428048707}
   m_Layer: 5
   m_Name: ModuleIntroScreen
   m_TagString: Untagged
@@ -3582,6 +3569,23 @@ RectTransform:
   m_AnchoredPosition: {x: -393, y: -632}
   m_SizeDelta: {x: 1196.243, y: 1176.509}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &428048707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428048705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15507b94373707b498550dea76c12ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModuleIntroView
+  screenManager: {fileID: 519214070}
+  tagText: {fileID: 1175361876}
+  titleText: {fileID: 640223434}
+  activityText: {fileID: 2048457248}
+  outcomeText: {fileID: 897252374}
 --- !u!1 &434863008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,7 +3601,6 @@ GameObject:
   - component: {fileID: 434863012}
   - component: {fileID: 434863011}
   - component: {fileID: 434863010}
-  - component: {fileID: 434863016}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -3756,19 +3759,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434863008}
   m_CullTransparentMesh: 1
---- !u!114 &434863016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434863008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 6
 --- !u!1 &449481797
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,7 +4487,6 @@ GameObject:
   - component: {fileID: 554750589}
   - component: {fileID: 554750588}
   - component: {fileID: 554750587}
-  - component: {fileID: 554750593}
   m_Layer: 5
   m_Name: UsePreviewButton
   m_TagString: Untagged
@@ -4656,19 +4645,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554750585}
   m_CullTransparentMesh: 1
---- !u!114 &554750593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554750585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 4
 --- !u!1 &559004543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,7 +4660,6 @@ GameObject:
   - component: {fileID: 559004547}
   - component: {fileID: 559004546}
   - component: {fileID: 559004545}
-  - component: {fileID: 559004551}
   m_Layer: 5
   m_Name: AllowCameraButton
   m_TagString: Untagged
@@ -4843,19 +4818,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559004543}
   m_CullTransparentMesh: 1
---- !u!114 &559004551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559004543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 4
 --- !u!1 &567975634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,6 +6472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798990025}
   - component: {fileID: 798990026}
+  - component: {fileID: 798990027}
   m_Layer: 5
   m_Name: ModuleMenuScreen
   m_TagString: Untagged
@@ -6549,17 +6512,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06b39cbdc3b5bd47a136db69d07d81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModuleMenuController
-  screenManager: {fileID: 519214070}
+  introView: {fileID: 428048707}
   moduleButtons:
   - {fileID: 634094569}
   - {fileID: 1376191064}
   - {fileID: 938865772}
   - {fileID: 1380569081}
   - {fileID: 1445344018}
-  tagText: {fileID: 1175361876}
-  titleText: {fileID: 640223434}
-  activityText: {fileID: 2048457248}
-  outcomeText: {fileID: 897252374}
+  challengeButton: {fileID: 1173648975}
+  postQuizButton: {fileID: 263108293}
+  progressBar: {fileID: 887807109}
+  progressText: {fileID: 123680541}
+  editorMarkAllModulesComplete: 0
+--- !u!114 &798990027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798990024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb629bf1555d274ea7d376526111ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResultsController
+  introView: {fileID: 428048707}
+  preScoreText: {fileID: 2033924401}
+  postScoreText: {fileID: 1976637365}
+  messageText: {fileID: 827684471}
+  reviewTitleText: {fileID: 649032396}
+  reviewButtonTemplate: {fileID: 325368370}
 --- !u!1 &827684469
 GameObject:
   m_ObjectHideFlags: 0
@@ -10842,7 +10824,6 @@ GameObject:
   - component: {fileID: 1244035272}
   - component: {fileID: 1244035271}
   - component: {fileID: 1244035270}
-  - component: {fileID: 1244035276}
   m_Layer: 5
   m_Name: ReplayButton
   m_TagString: Untagged
@@ -11001,19 +10982,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244035268}
   m_CullTransparentMesh: 1
---- !u!114 &1244035276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244035268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 6
 --- !u!1 &1283487987
 GameObject:
   m_ObjectHideFlags: 0
@@ -11133,7 +11101,6 @@ GameObject:
   - component: {fileID: 1297232103}
   - component: {fileID: 1297232102}
   - component: {fileID: 1297232101}
-  - component: {fileID: 1297232107}
   m_Layer: 5
   m_Name: BeginQuizButton
   m_TagString: Untagged
@@ -11292,19 +11259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297232099}
   m_CullTransparentMesh: 1
---- !u!114 &1297232107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297232099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 5
 --- !u!1 &1311592973
 GameObject:
   m_ObjectHideFlags: 0
@@ -11661,7 +11615,6 @@ GameObject:
   - component: {fileID: 1354540875}
   - component: {fileID: 1354540874}
   - component: {fileID: 1354540873}
-  - component: {fileID: 1354540879}
   m_Layer: 5
   m_Name: PreviewModeButton
   m_TagString: Untagged
@@ -11820,19 +11773,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354540871}
   m_CullTransparentMesh: 1
---- !u!114 &1354540879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354540871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d0ce3e329db4592ecbefa0ea6e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavigateButton
-  targetScreen: 4
 --- !u!1 &1359387676
 GameObject:
   m_ObjectHideFlags: 0
@@ -12871,6 +12811,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468795342}
   m_CullTransparentMesh: 1
+--- !u!1 &1471985373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1471985375}
+  - component: {fileID: 1471985374}
+  m_Layer: 0
+  m_Name: QuizManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1471985374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471985373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af2d05e80dcb4049a7763d046489b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizController
+  screenManager: {fileID: 519214070}
+  preQuizEntryButtons:
+  - {fileID: 1354540876}
+  - {fileID: 559004548}
+  - {fileID: 554750590}
+  postQuizEntryButton: {fileID: 263108293}
+  replayButton: {fileID: 1244035273}
+  introTitleText: {fileID: 1607461663}
+  introSubtitleText: {fileID: 1689382405}
+  beginQuizButton: {fileID: 1297232104}
+  counterText: {fileID: 750637028}
+  questionText: {fileID: 251383306}
+  feedbackText: {fileID: 270769858}
+  optionButtons:
+  - {fileID: 1782680937}
+  - {fileID: 889388230}
+  - {fileID: 2066735647}
+  nextButton: {fileID: 434863013}
+  nextButtonLabel: {fileID: 550960411}
+  revealAnswersInPreQuiz: 1
+--- !u!4 &1471985375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471985373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 217.596, y: 409.4129, z: 6.98346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1562167530
 GameObject:
   m_ObjectHideFlags: 0
@@ -16697,3 +16701,4 @@ SceneRoots:
   - {fileID: 1860759608}
   - {fileID: 1678149581}
   - {fileID: 519214071}
+  - {fileID: 1471985375}
