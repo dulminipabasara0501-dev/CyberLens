@@ -19,6 +19,9 @@ public class LessonController : MonoBehaviour
     [SerializeField] private TMP_Text subtitleText;
     [SerializeField] private TMP_Text tapInfoText;
 
+    [Header("Activities")]
+    [SerializeField] private ActivityController activityController;
+
     [Header("Question card")]
     [SerializeField] private GameObject questionCard;
     [SerializeField] private TMP_Text questionText;
@@ -48,6 +51,11 @@ public class LessonController : MonoBehaviour
         get { return module.Steps[stepIndex]; }
     }
 
+    private bool ActivityDone
+    {
+        get { return activityController == null || activityController.IsComplete; }
+    }
+
     private void Awake()
     {
         if (editorTestModuleIndex >= 0)
@@ -68,17 +76,32 @@ public class LessonController : MonoBehaviour
     {
         TapTarget.Tapped += OnObjectTapped;
 
+        if (activityController != null)
+        {
+            activityController.StateChanged += UpdateNextButton;
+        }
+
         // The lab only exists after it has been placed, so look for its token now.
         tokenMover = FindFirstObjectByType<DataTokenMover>();
         if (module != null)
         {
             ApplyTokenForStep(CurrentStep, true);
+
+            if (activityController != null)
+            {
+                activityController.RefreshVisuals();
+            }
         }
     }
 
     private void OnDisable()
     {
         TapTarget.Tapped -= OnObjectTapped;
+
+        if (activityController != null)
+        {
+            activityController.StateChanged -= UpdateNextButton;
+        }
     }
 
     private void OnDestroy()
@@ -129,8 +152,15 @@ public class LessonController : MonoBehaviour
         }
 
         ShowQuestion(step.Question);
-        UpdateNextButton();
         ApplyTokenForStep(step, false);
+
+        // The activity runs after the token is placed, so it can change the token colour.
+        if (activityController != null)
+        {
+            activityController.ShowFor(AppSession.SelectedModuleIndex, stepIndex);
+        }
+
+        UpdateNextButton();
     }
 
     private string BuildCodeText(LessonStep step)
@@ -261,7 +291,7 @@ public class LessonController : MonoBehaviour
 
     private void OnNextClicked()
     {
-        if (!questionSolved)
+        if (!questionSolved || !ActivityDone)
         {
             return;
         }
@@ -296,11 +326,16 @@ public class LessonController : MonoBehaviour
     private void UpdateNextButton()
     {
         bool lastStep = stepIndex == module.Steps.Length - 1;
+        bool canContinue = questionSolved && ActivityDone;
         string label = "Next Step";
 
         if (!questionSolved)
         {
             label = "Answer to continue";
+        }
+        else if (!ActivityDone)
+        {
+            label = "Complete the activity";
         }
         else if (lastStep)
         {
@@ -311,7 +346,7 @@ public class LessonController : MonoBehaviour
 
         if (nextButton != null)
         {
-            nextButton.interactable = questionSolved;
+            nextButton.interactable = canContinue;
         }
     }
 

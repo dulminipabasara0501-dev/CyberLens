@@ -3768,6 +3768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 449481798}
+  - component: {fileID: 449481799}
   m_Layer: 5
   m_Name: ResultsScreen
   m_TagString: Untagged
@@ -3795,6 +3796,24 @@ RectTransform:
   m_AnchoredPosition: {x: -393, y: -632}
   m_SizeDelta: {x: 1196.243, y: 1176.509}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &449481799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449481797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb629bf1555d274ea7d376526111ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResultsController
+  introView: {fileID: 428048707}
+  preScoreText: {fileID: 2033924401}
+  postScoreText: {fileID: 1976637365}
+  messageText: {fileID: 827684471}
+  reviewTitleText: {fileID: 649032396}
+  reviewButtonTemplate: {fileID: 325368370}
 --- !u!1 &479340175
 GameObject:
   m_ObjectHideFlags: 0
@@ -6472,7 +6491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798990025}
   - component: {fileID: 798990026}
-  - component: {fileID: 798990027}
   m_Layer: 5
   m_Name: ModuleMenuScreen
   m_TagString: Untagged
@@ -6524,24 +6542,6 @@ MonoBehaviour:
   progressBar: {fileID: 887807109}
   progressText: {fileID: 123680541}
   editorMarkAllModulesComplete: 0
---- !u!114 &798990027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798990024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb629bf1555d274ea7d376526111ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResultsController
-  introView: {fileID: 428048707}
-  preScoreText: {fileID: 2033924401}
-  postScoreText: {fileID: 1976637365}
-  messageText: {fileID: 827684471}
-  reviewTitleText: {fileID: 649032396}
-  reviewButtonTemplate: {fileID: 325368370}
 --- !u!1 &827684469
 GameObject:
   m_ObjectHideFlags: 0
