@@ -51,6 +51,14 @@ public class ScreenManager : MonoBehaviour
         {
             firstScreen = ScreenId.Welcome;
         }
+
+        // Coming back from the AR lesson: open the Module Menu directly.
+        if (AppSession.OpenModuleMenuOnStart)
+        {
+            AppSession.OpenModuleMenuOnStart = false;
+            firstScreen = ScreenId.ModuleMenu;
+        }
+
         Show(firstScreen);
     }
 

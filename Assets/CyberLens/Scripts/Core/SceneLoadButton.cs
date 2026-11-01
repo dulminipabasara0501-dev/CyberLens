@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SceneLoadButton : MonoBehaviour
 {
     [SerializeField] private string sceneName = "MainMenu";
+    [SerializeField] private bool openModuleMenu = false;
 
     private Button button;
 
@@ -28,6 +29,11 @@ public class SceneLoadButton : MonoBehaviour
 
     private void OnButtonClicked()
     {
+        if (openModuleMenu)
+        {
+            AppSession.OpenModuleMenuOnStart = true;
+        }
+
         SceneManager.LoadScene(sceneName);
     }
 }
