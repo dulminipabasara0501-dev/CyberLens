@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-// Moves a data token along a list of waypoints (Computer -> Server -> Database).
+// Moves a data token between waypoints (Computer, Server, Database).
 // The token and the waypoints must all be children of the same parent (CyberLab).
 public class DataTokenMover : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class DataTokenMover : MonoBehaviour
 
     private Renderer gemRenderer;
     private Coroutine moveRoutine;
+    private bool tokenVisible = true;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class DataTokenMover : MonoBehaviour
         }
     }
 
-    // Starts moving the token from the first waypoint to the last, then repeats.
+    // Loops the token from the first waypoint to the last (used by the Send data button).
     public void Play()
     {
         if (waypoints == null || waypoints.Length < 2)
@@ -50,6 +51,7 @@ public class DataTokenMover : MonoBehaviour
         }
 
         Stop();
+        SetTokenVisible(true);
         moveRoutine = StartCoroutine(MoveLoop());
     }
 
@@ -60,6 +62,38 @@ public class DataTokenMover : MonoBehaviour
             StopCoroutine(moveRoutine);
             moveRoutine = null;
         }
+    }
+
+    // Hides the token (used by lesson steps that have no token).
+    public void HideToken()
+    {
+        Stop();
+        SetTokenVisible(false);
+    }
+
+    // Moves the token to one waypoint: 0 = Computer, 1 = Server, 2 = Database.
+    // instant = true jumps there at once. A hidden token also appears there at once.
+    public void MoveToWaypoint(int index, bool instant)
+    {
+        if (waypoints == null || index < 0 || index >= waypoints.Length)
+        {
+            HideToken();
+            return;
+        }
+
+        Stop();
+
+        Vector3 target = waypoints[index].localPosition;
+        bool wasHidden = !tokenVisible;
+        SetTokenVisible(true);
+
+        if (instant || wasHidden)
+        {
+            transform.localPosition = target;
+            return;
+        }
+
+        moveRoutine = StartCoroutine(SlideTo(target));
     }
 
     // Cyan token = safe data.
@@ -74,12 +108,33 @@ public class DataTokenMover : MonoBehaviour
         SetGemMaterial(unsafeMaterial);
     }
 
+    private void SetTokenVisible(bool visible)
+    {
+        tokenVisible = visible;
+        if (tokenVisual != null)
+        {
+            tokenVisual.gameObject.SetActive(visible);
+        }
+    }
+
     private void SetGemMaterial(Material material)
     {
         if (gemRenderer != null && material != null)
         {
             gemRenderer.sharedMaterial = material;
         }
+    }
+
+    private IEnumerator SlideTo(Vector3 target)
+    {
+        while ((transform.localPosition - target).sqrMagnitude > 0.0001f)
+        {
+            transform.localPosition = Vector3.MoveTowards(
+                transform.localPosition, target, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        moveRoutine = null;
     }
 
     private IEnumerator MoveLoop()
