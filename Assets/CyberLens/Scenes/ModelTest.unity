@@ -2011,6 +2011,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7859220969005299359, guid: 7eb9249d533c387448b35dbb276fe4c2, type: 3}
+      propertyPath: displayName
+      value: Security Shield
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
