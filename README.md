@@ -7,6 +7,7 @@ An interactive educational app that teaches university students about **SQL inje
 - **Author:** S. A. D. P. Subasingha
 - **Course / module:** CCS Computer Graphics
 - **Repository:** https://github.com/dulminipabasara0501-dev/CyberLens.git
+- **Download the APK:** https://github.com/dulminipabasara0501-dev/CyberLens/releases/download/v1.0/CyberLens_final_test.apk
 
 ---
 
